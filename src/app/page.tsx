@@ -1,95 +1,63 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <main>
+      <div className="hero">
+        <section className="hero_content">
+          <h2 className="sr_only">Promoted Content</h2>
+          <p className="subtitle">No fees.</p>
+          <p className="subtitle">No minimum deposit.</p>
+          <p className="subtitle">High interest rates.</p>
+          <p className="text">Open a savings account with Argent Bank today!</p>
+        </section>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
+      <section className="features">
+        <h2 className="sr_only">Features</h2>
+        <div className="feature_item">
+          <Image
+            src="/images/icon-chat.png"
+            alt="Chat Icon"
+            width={64}
+            height={64}
+            className="feature_icon"
+          />
+          <h3 className="feature_item_title">You are our #1 priority</h3>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Need to talk to a representative? You can get in touch through our
+            24/7 chat or through a phone call in less than 5 minutes.
           </p>
-        </a>
-      </div>
+        </div>
+        <div className="feature_item">
+          <Image
+            src="/images/icon-money.png"
+            alt="Chat Icon"
+            width={64}
+            height={64}
+            className="feature_icon"
+          />
+          <h3 className="feature_item_title">
+            More savings means higher rates
+          </h3>
+          <p>
+            The more you save with us, the higher your interest rate will be!
+          </p>
+        </div>
+        <div className="feature_item">
+          <Image
+            src="/images/icon-security.png"
+            alt="Chat Icon"
+            width={64}
+            height={64}
+            className="feature_icon"
+          />
+          <h3 className="feature_item_title">Security you can trust</h3>
+          <p>
+            We use top of the line encryption to make sure your data and money
+            is always safe.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

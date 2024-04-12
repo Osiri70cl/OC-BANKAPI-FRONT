@@ -1,0 +1,46 @@
+.m-alert {
+   display: flex;
+   align-items: center;
+   border-radius: 8px;
+   gap: 8px;
+   padding: 16px;
+   background: var(--Neutral-Gray-200);
+   font-size: 13px;
+   font-weight: 500;
+   line-height: 20px;
+   color: var(--Neutral-Gray-700);
+   border: 1px solid var(--Neutral-Gray-300, #cbd5e1);
+   &--center {
+      text-align: center;
+   }
+
+   &__icon {
+      line-height: 0;
+      align-self: flex-start;
+      svg {
+         width: 16px;
+         flex-shrink: 0;
+      }
+   }
+
+   &--orange {
+      border: 1px solid var(--Semantic-Orange-200, #fed7aa);
+      background: var(--Semantic-Orange-100);
+      color: var(--Semantic-Orange-800);
+   }
+   &--green {
+      background: var(--Semantic-Green-100);
+      color: var(--Semantic-Green-800);
+      border: 1px solid var(--Semantic-Green-200, #bbf7d0);
+   }
+   &--sky {
+      background: var(--Semantic-Sky-100);
+      border: 1px solid var(--Semantic-Sky-200, #bbf7d0);
+      color: var(--Semantic-Sky-800);
+   }
+   &--red {
+      background: var(--Semantic-Red-100);
+      border: 1px solid var(--Semantic-Red-200, #bbf7d0);
+      color: var(--Semantic-Red-800);
+   }
+}

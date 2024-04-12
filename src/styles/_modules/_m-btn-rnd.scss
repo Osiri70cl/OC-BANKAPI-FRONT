@@ -1,0 +1,46 @@
+.m-btn-rnd {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 100%;
+   width: 40px;
+   height: 40px;
+   flex-shrink: 0;
+   background-color: rgba(255, 255, 255, 0.1);
+
+   &:hover {
+      @media screen and (min-width: 1024px) {
+         background-color: rgba(255, 255, 255, 0.2);
+      }
+   }
+   svg {
+      width: 20px;
+      height: 20px;
+      color: var(--Neutral-White-White);
+   }
+
+   &--grey {
+      background-color: var(--Neutral-Gray-200);
+      svg {
+         color: var(--Neutral-Gray-800);
+      }
+   }
+   &--white {
+      background-color: var(--Neutral-White-White);
+      border: 1px solid var(--Neutral-Gray-200);
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.02),
+         0px -4px 8px 0px rgba(0, 0, 0, 0.02) inset,
+         0px 2px 0px 0px rgba(0, 0, 0, 0.02),
+         0px 1px 0.5px 0px rgba(0, 0, 0, 0.05);
+
+      &:hover {
+         background: var(--Neutral-Gray-50);
+      }
+      &:focus {
+         background-color: var(--Neutral-White-White);
+         box-shadow: 0px 1px 0px 1px rgba(235, 75, 105, 0.25),
+            0px 0px 0px 4px rgba(235, 75, 105, 0.25),
+            0px 1px 1px 0.5px rgba(0, 0, 0, 0.05);
+      }
+   }
+}

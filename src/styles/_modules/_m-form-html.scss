@@ -1,0 +1,84 @@
+.m-form-html {
+   &--paddingspace {
+      padding: 24px 32px;
+   }
+   &--margin {
+      margin-bottom: 24px;
+   }
+   &--radius {
+      border-radius: 10px;
+   }
+   &--boxshadow {
+      box-shadow: 0px -1.5px 1px 0px rgba(0, 0, 0, 0.1) inset,
+         0px 1.5px 1px 0px rgba(255, 255, 255, 0.75) inset,
+         0px 0px 0px 1px rgba(0, 0, 0, 0.04);
+   }
+   &--gradient-blue {
+      background: linear-gradient(
+            180deg,
+            #c9e4e9 0%,
+            rgba(255, 255, 255, 0) 23.7%
+         ),
+         #fff;
+   }
+   &--gradient-green {
+      background: linear-gradient(
+            180deg,
+            #d4efd0 0%,
+            rgba(255, 255, 255, 0) 23.7%
+         ),
+         #fff;
+   }
+   &--gradient-orange {
+      background: linear-gradient(
+            180deg,
+            #fbe5cb 0%,
+            rgba(255, 255, 255, 0) 23.7%
+         ),
+         #fff;
+   }
+
+   &__image {
+      max-width: 105px;
+      margin-bottom: 16px;
+   }
+   &__title {
+      color: var(--Neutral-Gray-900, #0f172a);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 120%;
+   }
+   &__text {
+      margin-top: 16px;
+      color: var(--Neutral-Gray-500, #64748b);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+   }
+   &__duration {
+      display: inline-flex;
+      color: var(--Neutral-Gray-600, #475569);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 8px;
+      border-radius: 32px;
+      border: 1px solid var(--Neutral-Gray-200, #e2e8f0);
+      background: var(--Neutral-White-White, #fff);
+      margin-top: 16px;
+   }
+   &__label {
+      margin-bottom: 8px;
+      padding: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--Neutral-Gray-900, #0f172a);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--Neutral-Gray-200, #e2e8f0);
+      background: var(--Neutral-White-White, #fff);
+      box-shadow: 0px 1px 0.5px 0px rgba(0, 0, 0, 0.05);
+   }
+}

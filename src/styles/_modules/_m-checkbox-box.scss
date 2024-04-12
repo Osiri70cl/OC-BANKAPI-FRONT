@@ -1,0 +1,82 @@
+.m-checkbox-box {
+   display: inline-flex;
+   align-items: center;
+   position: relative;
+   width: 100%;
+   height: 64px;
+   padding: 0 24px;
+   gap: 16px;
+   background-color: #fff;
+   input {
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      border: 2px solid var(--Neutral-Gray-300);
+      border-radius: 10px;
+      &:checked {
+         box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.1),
+            0px 1px 1px 0.5px rgba(0, 0, 0, 0.05);
+         border-color: var(--primary-color);
+      }
+   }
+   input:checked ~ span {
+      box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.16) inset,
+         0px 2px 0px 0px rgba(255, 255, 255, 0.1) inset,
+         0px 1px 1px 0px rgba(0, 0, 0, 0.24);
+      border-color: var(--primary-color);
+      background: var(--primary-color);
+      &::after {
+         display: block;
+      }
+   }
+   input:checked ~ p {
+      color: var(--primary-color);
+   }
+   &__prefix {
+      line-height: 0;
+      svg {
+         color: var(--Neutral-Gray-500);
+      }
+   }
+   span {
+      position: relative;
+      display: block;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      border: 1px solid var(--Neutral-Gray-300);
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.02),
+         0px -4px 8px 0px rgba(0, 0, 0, 0.02) inset,
+         0px 2px 0px 0px rgba(0, 0, 0, 0.02),
+         0px 1px 0.5px 0px rgba(0, 0, 0, 0.05);
+      background: #fff;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-left: auto;
+      &::after {
+         content: '';
+         position: absolute;
+         display: none;
+         left: 6px;
+         top: 3px;
+         width: 6px;
+         height: 11px;
+         border: solid #fff;
+         border-width: 0 2px 2px 0;
+         transform: rotate(45deg);
+         border-radius: 1px;
+      }
+   }
+   p {
+      overflow: hidden;
+      color: var(--Neutral-Gray-900, #0f172a);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 120%;
+   }
+}

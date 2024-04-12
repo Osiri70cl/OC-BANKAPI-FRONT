@@ -1,0 +1,28 @@
+.m-badge-rect {
+   display: inline-flex;
+   align-items: center;
+   height: 16px;
+   padding: 0 6px;
+   border-radius: 4px;
+   text-align: center;
+   font-size: 8px;
+   font-weight: 700;
+   &--sm {
+      height: 20px;
+   }
+   &--green {
+      border: 1px solid var(--Neutral-Black-alpha-10, rgba(0, 0, 0, 0.1));
+      background: var(--Semantic-Green-100, #dcfce7);
+      color: var(--Semantic-Green-700, #15803d);
+   }
+   &--orange {
+      border: 1px solid var(--Neutral-Black-alpha-10, rgba(0, 0, 0, 0.1));
+      background: var(--Semantic-Orange-100, #ffedd5);
+      color: var(--Semantic-Orange-700, #c2410c);
+   }
+   &--indigo {
+      border: 1px solid var(--Neutral-Black-alpha-10, rgba(0, 0, 0, 0.1));
+      background: var(--Semantic-Indigo-100);
+      color: var(--Semantic-Indigo-700);
+   }
+}
