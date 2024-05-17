@@ -8,6 +8,8 @@ import Header from "../../header/Header";
 import Footer from "../../footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { getCookie } from "cookies-next";
+import { get } from "http";
 
 const ReduxComponent = ({ children }: { children: React.ReactNode }) => {
   const user = useSelector((state: any) => state.user);
@@ -17,10 +19,15 @@ const ReduxComponent = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const config = {
       headers: {
-        Authorization: `Bearer ${token?.tokenData?.token}`,
+        Authorization: `Bearer ${
+          getCookie("token")
+            ? getCookie("token")
+            : token
+            ? token?.tokenData?.token
+            : ""
+        }`,
       },
     };
-
     axios
       .post("http://localhost:3001/api/v1/user/profile", {}, config)
       .then((res) => {
@@ -34,7 +41,7 @@ const ReduxComponent = ({ children }: { children: React.ReactNode }) => {
       .catch((error) => {
         console.log(error);
       });
-  }, [token?.tokenData?.token]);
+  }, [getCookie("token"), token]);
 
   return (
     <>

@@ -2,8 +2,8 @@
 import { fetchPostLogin, fetchPostSignup } from "@/api/auth/route";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { setCookie } from "cookies-next";
+import { set, useForm } from "react-hook-form";
+import { getCookie, setCookie } from "cookies-next";
 import { useDispatch } from "react-redux";
 import { setUserData } from "@/global/redux/reducers/userSlice";
 import axios from "axios";
@@ -14,6 +14,7 @@ const LoginComponent = () => {
   console.log("LoginComponent");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const [rememberMe, setRemberMe] = useState(false);
   const router = useRouter();
   const {
     register,
@@ -32,12 +33,13 @@ const LoginComponent = () => {
               token: res.data.body.token,
             })
           );
+          if (rememberMe) {
+            setCookie("token", res.data.body.token);
+          }
+          router.push("/profile");
         } else {
           console.log("error");
         }
-      })
-      .then(() => {
-        router.push("/profile");
       })
       .catch((error) => {
         console.log(error);
@@ -68,10 +70,14 @@ const LoginComponent = () => {
             />
             {error && <p className="errorMsg">{error}</p>}
           </div>
-          {/* <div className="input_remember">
-            <input type="checkbox" id="remember_me" />
-            <label for="remember_me">Remember me</label>
-          </div> */}
+          <div className="input_remember">
+            <input
+              type="checkbox"
+              id="remember_me"
+              onClick={() => setRemberMe(true)}
+            />
+            <label>Remember me</label>
+          </div>
           {/* <!_ PLACEHOLDER DUE TO STATIC SITE _> */}
           <button type="submit" className="sign_in_button">
             Sign In

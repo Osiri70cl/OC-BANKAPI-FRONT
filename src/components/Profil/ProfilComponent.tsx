@@ -2,13 +2,14 @@
 import { useRouter } from "next/router";
 import { use, useEffect, useMemo, useState } from "react";
 import { set, useForm } from "react-hook-form";
-import { setCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import { fetchGetUserInfo, fetchUpdateUserInfo } from "@/api/profil/route";
 import { render } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "@/global/redux/reducers/userSlice";
 import { store } from "@/global/redux/store";
 import axios from "axios";
+import { get } from "http";
 
 const ProfilComponent = () => {
   const [nameChange, setNameChange] = useState(false);
@@ -20,6 +21,7 @@ const ProfilComponent = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -28,10 +30,23 @@ const ProfilComponent = () => {
     },
   });
 
+  useEffect(() => {
+    setValue("firstName", user?.userData?.firstName);
+    setValue("lastName", user?.userData?.lastName);
+  }, [user]);
+
+  console.log(user);
+
   const onSubmit = (data: any) => {
     const config = {
       headers: {
-        Authorization: `Bearer ${token?.tokenData?.token}`,
+        Authorization: `Bearer ${
+          getCookie("token")
+            ? getCookie("token")
+            : token
+            ? token?.tokenData?.token
+            : ""
+        }`,
       },
     };
     axios
@@ -50,12 +65,13 @@ const ProfilComponent = () => {
         console.log(error);
       });
   };
-
   useEffect(() => {
-    if (!token?.tokenData?.token) {
+    const tokenExists = getCookie("token");
+    const tokenDataExists = token?.tokenData?.token;
+    if (!tokenExists && !tokenDataExists) {
       window.location.href = "/login";
     }
-  }, [token?.tokenData?.token]);
+  }, [getCookie, token]);
 
   const handleNameChange = () => {
     setNameChange(!nameChange);
@@ -103,7 +119,7 @@ const ProfilComponent = () => {
         </>
       );
     }
-  }, [nameChange]);
+  }, [nameChange, user]);
 
   return (
     <main className="main bg_dark">
